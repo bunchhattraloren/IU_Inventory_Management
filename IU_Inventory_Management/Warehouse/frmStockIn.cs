@@ -140,11 +140,11 @@ namespace IU_Inventory_Management.Warehouse
                 _frmItem._save = false;
                 _frmItem.ShowDialog();
 
-                if (MsgBox._resultYes)
+                if (_reload)
                 {
                     loadGrid();
                 }
-                MsgBox._resultYes = false;
+                _reload = false;
             }
             catch (Exception er)
             {

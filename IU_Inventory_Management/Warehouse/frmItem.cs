@@ -125,22 +125,22 @@ namespace IU_Inventory_Management.Warehouse
                         {
                             //sql = "INSERT INTO tblInventoryItem VALUES('" + _nameEn + "','" + _nameKh + "','" + _Image + "','" + _serialNumber + "','" + _description + "','" + _checkProblem + "','" + _problemDescription + "'," + 1 + ",GETDATE(),NULL,'" + _idLocation + "','" + _idRoom + "','" + _idProduct + "','" + Database._idUser + "')";
                             Database.executeProce("spWarehouse", new Dictionary<string, object>() {
-                        {"nameEn",_nameEn },
-                        {"nameKh",_nameKh},
-                        {"image",_Image },
-                        {"brand", _brand},
-                        {"code", _code},
-                        {"serialNumber",_serialNumber },
-                        {"description",_description },
-                        {"problemDescription",_problemDescription },
-                        {"idLocation",_idLocation },
-                        {"idRoom",_idRoom },
-                        {"idProduct",_idProduct },
-                        {"quantity",_quantity },
-                        {"checkProblem",_checkProblem },
-                        {"idUser",Database._idUser }
-                    });
-                            showMessage = "Create product was success";
+                            {"nameEn",_nameEn },
+                            {"nameKh",_nameKh},
+                            {"image",_Image },
+                            {"brand", _brand},
+                            {"code", _code},
+                            {"serialNumber",_serialNumber },
+                            {"description",_description },
+                            {"problemDescription",_problemDescription },
+                            {"idLocation",_idLocation },
+                            {"idRoom",_idRoom },
+                            {"idProduct",_idProduct },
+                            {"quantity",_quantity },
+                            {"checkProblem",_checkProblem },
+                            {"idUser",Database._idUser }
+                            });
+                                showMessage = "Create product was success";
                         }
                         else
                         {

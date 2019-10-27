@@ -22,7 +22,7 @@ namespace IU_Inventory_Management.Warehouse
 
         private void frmProduct_Load(object sender, EventArgs e)
         {
-            Utilities.bindCombo(Database.getData("SELECT * FROM tblInventoryGategory"), cboCategory, "categoryName", "idCategory", "[ Choose One]", false);
+            Utilities.bindCombo(Database.getData("SELECT * FROM tblInventoryGategory WHERE categoryStatus=1"), cboCategory, "categoryName", "idCategory", "[ Choose One]", false);
             loadGrid();
             gridButtonDelete();
             for (int i = 0; i < gdvProduct.Columns.Count - 1; i++)

@@ -53,6 +53,7 @@ namespace IU_Inventory_Management
             {
                 _resultYes = true;
             }
+            _resultYes = true;
             this.Close();
         }
 
