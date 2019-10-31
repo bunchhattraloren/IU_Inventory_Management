@@ -19,7 +19,7 @@ namespace IU_Inventory_Management.Warehouse
         }
         public string _nameKh, _nameEn, _code, _serialNumber, _description, _problemDescription, _photoName, _brand = "";
         public string _Image = "product.png";
-        public int _idItem, _idLocation, _idRoom, _idProduct, _quantity;
+        public int _idItem, _idStaff, _idLocation, _idRoom, _idProduct, _quantity;
         public bool _checkProblem;
         public bool _save = true;
 
@@ -95,7 +95,7 @@ namespace IU_Inventory_Management.Warehouse
                 _nameKh = txtNameKh.Text;
                 _nameEn = txtNameEn.Text;
                 _brand = txtBrand.Text;
-                _code = txtCode.Text;
+               
                 _serialNumber = txtSerialNumber.Text;
                 _description = rtbDescription.Text;
                 _problemDescription = rtbProblemDescription.Text;
@@ -111,6 +111,7 @@ namespace IU_Inventory_Management.Warehouse
                 _idLocation = Convert.ToInt16(cboLocation.SelectedValue);
                 _idRoom = Convert.ToInt16(cboRoom.SelectedValue);
                 _idProduct = Convert.ToInt16(cboProduct.SelectedValue);
+                 _code = _idLocation + "-" + _idRoom + "-" + _idProduct + "-" + _idStaff + "-" + DateTime.Now.ToString("ddMMyyyyhhmmss");
                 if (!string.IsNullOrEmpty(_photoName))
                 {
                     _Image = Utilities.saveImage(pcbImage, "./Image/Product/", _photoName, ".jpg");
@@ -138,7 +139,8 @@ namespace IU_Inventory_Management.Warehouse
                             {"idProduct",_idProduct },
                             {"quantity",_quantity },
                             {"checkProblem",_checkProblem },
-                            {"idUser",Database._idUser }
+                            {"idUser",Database._idUser },
+                            { "idStaff",_idStaff }
                             });
                                 showMessage = "Create product was success";
                         }

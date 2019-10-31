@@ -29,12 +29,14 @@ namespace IU_Inventory_Management.StockOut
             gdvStockOut.Columns["idLocation"].Visible = false;
             gdvStockOut.Columns["idFloor"].Visible = false;
             gdvStockOut.Columns["idRoom"].Visible = false;
+            gdvStockOut.Columns["idItem"].Visible = false;
             gdvStockOut.Columns["Description"].Visible = false;
-            gdvStockOut.Columns["Quantity"].Width = 29;
-            gdvStockOut.Columns["Floor"].Width = 16;
-            gdvStockOut.Columns["Brand"].Width = 42;
+            //gdvStockOut.Columns["Quantity"].Width = 29;
+            //gdvStockOut.Columns["Floor"].Width = 16;
+            //gdvStockOut.Columns["Brand"].Width = 42;
             gridButtonEdit();
             gridButtonRefuse();
+            gdvStockOut.BestFitColumns();
         }
         public void loadGrid()
         {
@@ -59,6 +61,7 @@ namespace IU_Inventory_Management.StockOut
                                             IVT_L.idLocation,
 											IVT_F.idFloor,
 											IVT_R.idRoom,
+                                            IVT_I.idItem,
                                             '' AS Edit,
                                             '' AS [Refuse]
                                             FROM tblInventoryStockOut AS IVT_SO
@@ -70,7 +73,7 @@ namespace IU_Inventory_Management.StockOut
                                             LEFT JOIN tblInventoryProduct AS IVT_P ON IVT_P.idProduct=IVT_I.idProduct
                                             LEFT JOIN tblInventoryGategory AS IVT_CG ON IVT_CG.idCategory=IVT_P.idCategory
                                             LEFT JOIN tblInventoryWarehouse AS IVT_W ON IVT_W.idStockOut=IVT_SO.idStockOut
-                                            WHERE  IVT_SO.stockOutStatus=1 AND IVT_W.warehouseStatus = 1 AND (ST.idStaff=@idStaff OR @idStaff=0) ORDER BY ST.staffName", _idStaff);
+                                            WHERE  IVT_SO.stockOutStatus=1 AND IVT_W.warehouseStatus = 1 AND IVT_SO.stockIn=0 AND (ST.idStaff=@idStaff OR @idStaff=0) ORDER BY ST.staffName", _idStaff);
             gdcStockOut.DataSource = Database.getData(sql);
             gdvStockOut.Columns["Product"].Group();
             gdvStockOut.ExpandAllGroups();
@@ -143,8 +146,10 @@ namespace IU_Inventory_Management.StockOut
                 if (MsgBox._resultYes)
                 {
                     _id = Convert.ToInt16(gdvStockOut.GetRowCellDisplayText(gdvStockOut.GetSelectedRows()[0], gdvStockOut.Columns["Id"]));
+                    int _idItem = Convert.ToInt16(gdvStockOut.GetRowCellDisplayText(gdvStockOut.GetSelectedRows()[0], gdvStockOut.Columns["idItem"]));
                     Database.executeSql("UPDATE tblInventoryWarehouse SET warehouseStatus=0,warehouseDeactive=GETDATE() WHERE idStockOut=" + _id + "");
-                    Database.executeSql("UPDATE tblInventoryStockOut SET stockOutStatus=0,stockOutDeactive=GETDATE() WHERE idStockOut=" + _id + "");
+                    Database.executeSql("UPDATE tblInventoryStockOut SET stockIn=1,stockOutDeactive=GETDATE() WHERE idStockOut=" + _id + "");
+                    Database.executeSql("update tblInventoryItem SET itemStockOut=0 WHERE idItem=" + _idItem + "");
                     loadGrid();
                 }
                 MsgBox._resultYes = false;
@@ -218,6 +223,11 @@ namespace IU_Inventory_Management.StockOut
             {
                 MsgBox.msgLoad("error", ex.Message);
             }
+        }
+
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            loadGrid();
         }
     }
 }

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
-            this.btnWarehouse = new DevExpress.XtraBars.BarButtonItem();
             this.btnRoom = new DevExpress.XtraBars.BarButtonItem();
             this.bliConnectionString = new DevExpress.XtraBars.BarLinkContainerItem();
             this.btnUser = new DevExpress.XtraBars.BarButtonItem();
@@ -43,6 +42,8 @@
             this.btnStockOut = new DevExpress.XtraBars.BarButtonItem();
             this.btnStockIn = new DevExpress.XtraBars.BarButtonItem();
             this.btnLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRefuse = new DevExpress.XtraBars.BarButtonItem();
+            this.btnStaffStockIn = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -51,6 +52,7 @@
             this.ribbonPage3 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -65,7 +67,6 @@
             this.ribbon.ExpandCollapseItem.Id = 0;
             this.ribbon.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.ribbon.ExpandCollapseItem,
-            this.btnWarehouse,
             this.btnRoom,
             this.bliConnectionString,
             this.btnUser,
@@ -76,9 +77,11 @@
             this.btnCategory,
             this.btnStockOut,
             this.btnStockIn,
-            this.btnLogout});
+            this.btnLogout,
+            this.btnRefuse,
+            this.btnStaffStockIn});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 16;
+            this.ribbon.MaxItemId = 18;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -86,15 +89,6 @@
             this.ribbonPage2});
             this.ribbon.Size = new System.Drawing.Size(1014, 162);
             this.ribbon.StatusBar = this.ribbonStatusBar;
-            // 
-            // btnWarehouse
-            // 
-            this.btnWarehouse.Caption = "Warehouse";
-            this.btnWarehouse.Id = 1;
-            this.btnWarehouse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnWarehouse.ImageOptions.Image")));
-            this.btnWarehouse.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnWarehouse.ImageOptions.LargeImage")));
-            this.btnWarehouse.Name = "btnWarehouse";
-            this.btnWarehouse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnWarehouse_ItemClick_1);
             // 
             // btnRoom
             // 
@@ -122,7 +116,7 @@
             // 
             // btnStaff
             // 
-            this.btnStaff.Caption = "Staff";
+            this.btnStaff.Caption = "Staff StockOut";
             this.btnStaff.Id = 5;
             this.btnStaff.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStaff.ImageOptions.Image")));
             this.btnStaff.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStaff.ImageOptions.LargeImage")));
@@ -189,6 +183,24 @@
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLogout_ItemClick);
             // 
+            // btnRefuse
+            // 
+            this.btnRefuse.Caption = "Refuse";
+            this.btnRefuse.Id = 16;
+            this.btnRefuse.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.Image")));
+            this.btnRefuse.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefuse.ImageOptions.LargeImage")));
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefuse_ItemClick);
+            // 
+            // btnStaffStockIn
+            // 
+            this.btnStaffStockIn.Caption = "Staff StockIn";
+            this.btnStaffStockIn.Id = 17;
+            this.btnStaffStockIn.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnStaffStockIn.ImageOptions.Image")));
+            this.btnStaffStockIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnStaffStockIn.ImageOptions.LargeImage")));
+            this.btnStaffStockIn.Name = "btnStaffStockIn";
+            this.btnStaffStockIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnStaffStockIn_ItemClick);
+            // 
             // ribbonPage1
             // 
             this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -202,7 +214,7 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnWarehouse);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnStaffStockIn);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnStockIn);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Warehouse";
@@ -230,7 +242,8 @@
             // 
             this.ribbonPage3.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup5,
-            this.ribbonPageGroup7});
+            this.ribbonPageGroup7,
+            this.ribbonPageGroup9});
             this.ribbonPage3.Image = ((System.Drawing.Image)(resources.GetObject("ribbonPage3.Image")));
             this.ribbonPage3.Name = "ribbonPage3";
             this.ribbonPage3.Text = "StockOut";
@@ -246,6 +259,12 @@
             this.ribbonPageGroup7.ItemLinks.Add(this.btnStockOut);
             this.ribbonPageGroup7.Name = "ribbonPageGroup7";
             this.ribbonPageGroup7.Text = "StockOut";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnRefuse);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
             // 
             // ribbonPage2
             // 
@@ -309,7 +328,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.Ribbon.RibbonStatusBar ribbonStatusBar;
-        private DevExpress.XtraBars.BarButtonItem btnWarehouse;
         private DevExpress.XtraBars.BarButtonItem btnRoom;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
@@ -331,5 +349,8 @@
         private DevExpress.XtraBars.BarButtonItem btnStockIn;
         private DevExpress.XtraBars.BarButtonItem btnLogout;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.BarButtonItem btnRefuse;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarButtonItem btnStaffStockIn;
     }
 }

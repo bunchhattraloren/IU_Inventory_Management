@@ -36,14 +36,16 @@
             this.cmsDetailStockOut = new System.Windows.Forms.ToolStripMenuItem();
             this.gdvStaff = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.bar1 = new DevExpress.XtraBars.Bar();
+            this.btnAddStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnDetailStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.bar1 = new DevExpress.XtraBars.Bar();
-            this.bar3 = new DevExpress.XtraBars.Bar();
-            this.btnAddStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.btnDetailStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnRefuse = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.cmsRefuse = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gdcStaff)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gdvStaff)).BeginInit();
@@ -66,9 +68,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cmsStockOut,
-            this.cmsDetailStockOut});
+            this.cmsDetailStockOut,
+            this.cmsRefuse});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(157, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(157, 92);
             // 
             // cmsStockOut
             // 
@@ -101,9 +104,50 @@
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
             this.btnAddStockOut,
-            this.btnDetailStockOut});
-            this.barManager1.MaxItemId = 2;
+            this.btnDetailStockOut,
+            this.btnRefuse});
+            this.barManager1.MaxItemId = 3;
             this.barManager1.StatusBar = this.bar3;
+            // 
+            // bar1
+            // 
+            this.bar1.BarName = "Tools";
+            this.bar1.DockCol = 0;
+            this.bar1.DockRow = 0;
+            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
+            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnAddStockOut),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailStockOut),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefuse)});
+            this.bar1.Text = "Tools";
+            // 
+            // btnAddStockOut
+            // 
+            this.btnAddStockOut.Caption = "StockOut";
+            this.btnAddStockOut.Id = 0;
+            this.btnAddStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddStockOut.ImageOptions.LargeImage")));
+            this.btnAddStockOut.Name = "btnAddStockOut";
+            this.btnAddStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddStockOut_ItemClick);
+            // 
+            // btnDetailStockOut
+            // 
+            this.btnDetailStockOut.Caption = "Detail StockOut";
+            this.btnDetailStockOut.Id = 1;
+            this.btnDetailStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDetailStockOut.ImageOptions.LargeImage")));
+            this.btnDetailStockOut.Name = "btnDetailStockOut";
+            this.btnDetailStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetailStockOut_ItemClick);
+            // 
+            // bar3
+            // 
+            this.bar3.BarName = "Status bar";
+            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
+            this.bar3.DockCol = 0;
+            this.bar3.DockRow = 0;
+            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
+            this.bar3.OptionsBar.AllowQuickCustomization = false;
+            this.bar3.OptionsBar.DrawDragBorder = false;
+            this.bar3.OptionsBar.UseWholeRow = true;
+            this.bar3.Text = "Status bar";
             // 
             // barDockControlTop
             // 
@@ -137,42 +181,20 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 343);
             // 
-            // bar1
+            // btnRefuse
             // 
-            this.bar1.BarName = "Tools";
-            this.bar1.DockCol = 0;
-            this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
-            this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnAddStockOut),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailStockOut)});
-            this.bar1.Text = "Tools";
+            this.btnRefuse.Caption = "Detail Refuse";
+            this.btnRefuse.Id = 2;
+            this.btnRefuse.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.LargeImage")));
+            this.btnRefuse.Name = "btnRefuse";
+            this.btnRefuse.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefuse_ItemClick);
             // 
-            // bar3
+            // cmsRefuse
             // 
-            this.bar3.BarName = "Status bar";
-            this.bar3.CanDockStyle = DevExpress.XtraBars.BarCanDockStyle.Bottom;
-            this.bar3.DockCol = 0;
-            this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom;
-            this.bar3.OptionsBar.AllowQuickCustomization = false;
-            this.bar3.OptionsBar.DrawDragBorder = false;
-            this.bar3.OptionsBar.UseWholeRow = true;
-            this.bar3.Text = "Status bar";
-            // 
-            // btnAddStockOut
-            // 
-            this.btnAddStockOut.Caption = "StockOut";
-            this.btnAddStockOut.Id = 0;
-            this.btnAddStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem1.ImageOptions.LargeImage")));
-            this.btnAddStockOut.Name = "btnAddStockOut";
-            this.btnAddStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddStockOut_ItemClick);
-            // 
-            // btnDetailStockOut
-            // 
-            this.btnDetailStockOut.Caption = "Detail StockOut";
-            this.btnDetailStockOut.Id = 1;
-            this.btnDetailStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barLargeButtonItem2.ImageOptions.LargeImage")));
-            this.btnDetailStockOut.Name = "btnDetailStockOut";
-            this.btnDetailStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetailStockOut_ItemClick);
+            this.cmsRefuse.Name = "cmsRefuse";
+            this.cmsRefuse.Size = new System.Drawing.Size(156, 22);
+            this.cmsRefuse.Text = "Detail Refuse";
+            this.cmsRefuse.Click += new System.EventHandler(this.cmsRefuse_Click);
             // 
             // frmStaff
             // 
@@ -214,5 +236,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarLargeButtonItem btnRefuse;
+        private System.Windows.Forms.ToolStripMenuItem cmsRefuse;
     }
 }

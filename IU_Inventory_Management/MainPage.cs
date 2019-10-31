@@ -99,6 +99,14 @@ namespace IU_Inventory_Management
         {
             viewChidForm(new Warehouse.frmStockIn());
         }
+        private void btnRefuse_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            viewChidForm(new StockOut.frmRefuse());
+        }
+        private void btnStaffStockIn_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            viewChidForm(new StockIn.frmStaffStockIn());
+        }
         bool isLogOut = false;
         private void btnLogout_ItemClick(object sender, ItemClickEventArgs e)
         {
@@ -107,7 +115,7 @@ namespace IU_Inventory_Management
             frmLogin _frmLogin = new frmLogin();
             _frmLogin.Show();
         }
-
+       
         private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (isLogOut == false)
@@ -132,5 +140,7 @@ namespace IU_Inventory_Management
                 }
             }
         }
+
+
     }
 }

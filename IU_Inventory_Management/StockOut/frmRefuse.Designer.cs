@@ -1,6 +1,6 @@
 ﻿namespace IU_Inventory_Management.StockOut
 {
-    partial class frmStockOut
+    partial class frmRefuse
     {
         /// <summary>
         /// Required designer variable.
@@ -29,60 +29,22 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockOut));
-            this.gdcStockOut = new DevExpress.XtraGrid.GridControl();
-            this.gdvStockOut = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsReport = new System.Windows.Forms.ToolStripMenuItem();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRefuse));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnRefresh = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.btnReportStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnReport = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.gdcStockOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvStockOut)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.gdcRefuse = new DevExpress.XtraGrid.GridControl();
+            this.gvcRefuse = new DevExpress.XtraGrid.Views.Grid.GridView();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdcRefuse)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvcRefuse)).BeginInit();
             this.SuspendLayout();
-            // 
-            // gdcStockOut
-            // 
-            this.gdcStockOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            this.gdcStockOut.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gdcStockOut.Location = new System.Drawing.Point(0, 49);
-            this.gdcStockOut.MainView = this.gdvStockOut;
-            this.gdcStockOut.Name = "gdcStockOut";
-            this.gdcStockOut.Size = new System.Drawing.Size(1337, 442);
-            this.gdcStockOut.TabIndex = 0;
-            this.gdcStockOut.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gdvStockOut});
-            this.gdcStockOut.Click += new System.EventHandler(this.gdcStockOut_Click);
-            // 
-            // gdvStockOut
-            // 
-            this.gdvStockOut.GridControl = this.gdcStockOut;
-            this.gdvStockOut.Name = "gdvStockOut";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsReport});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
-            // 
-            // cmsReport
-            // 
-            this.cmsReport.Name = "cmsReport";
-            this.cmsReport.Size = new System.Drawing.Size(109, 22);
-            this.cmsReport.Text = "Report";
-            this.cmsReport.Click += new System.EventHandler(this.cmsReport_Click);
             // 
             // barManager1
             // 
@@ -95,9 +57,9 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnReportStockOut,
+            this.btnReport,
             this.btnRefresh});
-            this.barManager1.MaxItemId = 3;
+            this.barManager1.MaxItemId = 2;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -108,25 +70,24 @@
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(this.btnRefresh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnReportStockOut)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnReport)});
             this.bar1.Text = "Tools";
             // 
             // btnRefresh
             // 
             this.btnRefresh.Caption = "Refresh";
-            this.btnRefresh.Id = 2;
-            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
+            this.btnRefresh.Id = 1;
             this.btnRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.LargeImage")));
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
             // 
-            // btnReportStockOut
+            // btnReport
             // 
-            this.btnReportStockOut.Caption = "Report";
-            this.btnReportStockOut.Id = 1;
-            this.btnReportStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportStockOut.ImageOptions.LargeImage")));
-            this.btnReportStockOut.Name = "btnReportStockOut";
-            this.btnReportStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportStockOut_ItemClick);
+            this.btnReport.Caption = "Report";
+            this.btnReport.Id = 0;
+            this.btnReport.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReport.ImageOptions.LargeImage")));
+            this.btnReport.Name = "btnReport";
+            this.btnReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReport_ItemClick);
             // 
             // bar3
             // 
@@ -146,15 +107,15 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1337, 49);
+            this.barDockControlTop.Size = new System.Drawing.Size(619, 49);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 491);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 294);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1337, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(619, 23);
             // 
             // barDockControlLeft
             // 
@@ -162,35 +123,49 @@
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 49);
             this.barDockControlLeft.Manager = this.barManager1;
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 245);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1337, 49);
+            this.barDockControlRight.Location = new System.Drawing.Point(619, 49);
             this.barDockControlRight.Manager = this.barManager1;
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 442);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 245);
             // 
-            // frmStockOut
+            // gdcRefuse
+            // 
+            this.gdcRefuse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdcRefuse.Location = new System.Drawing.Point(0, 49);
+            this.gdcRefuse.MainView = this.gvcRefuse;
+            this.gdcRefuse.MenuManager = this.barManager1;
+            this.gdcRefuse.Name = "gdcRefuse";
+            this.gdcRefuse.Size = new System.Drawing.Size(619, 245);
+            this.gdcRefuse.TabIndex = 4;
+            this.gdcRefuse.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvcRefuse});
+            // 
+            // gvcRefuse
+            // 
+            this.gvcRefuse.GridControl = this.gdcRefuse;
+            this.gvcRefuse.Name = "gvcRefuse";
+            // 
+            // frmRefuse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1337, 514);
-            this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.gdcStockOut);
+            this.ClientSize = new System.Drawing.Size(619, 317);
+            this.Controls.Add(this.gdcRefuse);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "frmStockOut";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StockOut";
-            this.Load += new System.EventHandler(this.frmStockOut_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gdcStockOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvStockOut)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.Name = "frmRefuse";
+            this.Text = "Refuse";
+            this.Load += new System.EventHandler(this.frmRefuse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdcRefuse)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvcRefuse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,18 +173,16 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gdcStockOut;
-        private DevExpress.XtraGrid.Views.Grid.GridView gdvStockOut;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cmsReport;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarLargeButtonItem btnReportStockOut;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraBars.BarLargeButtonItem btnReport;
+        private DevExpress.XtraGrid.GridControl gdcRefuse;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvcRefuse;
         private DevExpress.XtraBars.BarLargeButtonItem btnRefresh;
     }
 }

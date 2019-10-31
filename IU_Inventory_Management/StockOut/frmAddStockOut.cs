@@ -268,7 +268,8 @@ namespace IU_Inventory_Management.StockOut
                     _itemNameEn = gdvItem.GetRowCellDisplayText(gdvItem.GetSelectedRows()[0], gdvItem.Columns[1]);
                     _itemNameKh = gdvItem.GetRowCellDisplayText(gdvItem.GetSelectedRows()[0], gdvItem.Columns[2]);
                     _idLocation = Convert.ToInt16(cboLocation.SelectedValue);
-                    _barCode = _idLocation.ToString() + "-" + _idStaff.ToString() + "-" + _idItem.ToString();
+                    _idRoom = Convert.ToInt16(cboRoom.SelectedValue);
+                    _barCode = _idLocation + "-" + _idRoom + "-" + _idStaff + "-" + _idItem;
                     _Description = rtbDescription.Text;
                     _idRoom = Convert.ToInt16(cboRoom.SelectedValue);
                     _qunatity = Convert.ToInt16(gdvItem.GetRowCellDisplayText(gdvItem.GetSelectedRows()[0], gdvItem.Columns[11]));

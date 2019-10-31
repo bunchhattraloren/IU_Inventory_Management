@@ -1,6 +1,6 @@
-﻿namespace IU_Inventory_Management.StockOut
+﻿namespace IU_Inventory_Management.StockIn
 {
-    partial class frmStockOut
+    partial class frmStaffStockIn
     {
         /// <summary>
         /// Required designer variable.
@@ -29,60 +29,65 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStockOut));
-            this.gdcStockOut = new DevExpress.XtraGrid.GridControl();
-            this.gdvStockOut = new DevExpress.XtraGrid.Views.Grid.GridView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStaffStockIn));
+            this.gdcStaff = new DevExpress.XtraGrid.GridControl();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.cmsReport = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsStockIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.cmsDetailStockIn = new System.Windows.Forms.ToolStripMenuItem();
+            this.gdvStaff = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnRefresh = new DevExpress.XtraBars.BarLargeButtonItem();
-            this.btnReportStockOut = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnAddStockIn = new DevExpress.XtraBars.BarLargeButtonItem();
+            this.btnDetailStockIn = new DevExpress.XtraBars.BarLargeButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            ((System.ComponentModel.ISupportInitialize)(this.gdcStockOut)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvStockOut)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gdcStaff)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gdvStaff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             this.SuspendLayout();
             // 
-            // gdcStockOut
+            // gdcStaff
             // 
-            this.gdcStockOut.Dock = System.Windows.Forms.DockStyle.Fill;
-            gridLevelNode1.RelationName = "Level1";
-            this.gdcStockOut.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
-            this.gdcStockOut.Location = new System.Drawing.Point(0, 49);
-            this.gdcStockOut.MainView = this.gdvStockOut;
-            this.gdcStockOut.Name = "gdcStockOut";
-            this.gdcStockOut.Size = new System.Drawing.Size(1337, 442);
-            this.gdcStockOut.TabIndex = 0;
-            this.gdcStockOut.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gdvStockOut});
-            this.gdcStockOut.Click += new System.EventHandler(this.gdcStockOut_Click);
-            // 
-            // gdvStockOut
-            // 
-            this.gdvStockOut.GridControl = this.gdcStockOut;
-            this.gdvStockOut.Name = "gdvStockOut";
+            this.gdcStaff.ContextMenuStrip = this.contextMenuStrip1;
+            this.gdcStaff.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gdcStaff.Location = new System.Drawing.Point(0, 49);
+            this.gdcStaff.MainView = this.gdvStaff;
+            this.gdcStaff.Name = "gdcStaff";
+            this.gdcStaff.Size = new System.Drawing.Size(1150, 442);
+            this.gdcStaff.TabIndex = 5;
+            this.gdcStaff.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gdvStaff});
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cmsReport});
+            this.cmsStockIn,
+            this.cmsDetailStockIn});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(110, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
             // 
-            // cmsReport
+            // cmsStockIn
             // 
-            this.cmsReport.Name = "cmsReport";
-            this.cmsReport.Size = new System.Drawing.Size(109, 22);
-            this.cmsReport.Text = "Report";
-            this.cmsReport.Click += new System.EventHandler(this.cmsReport_Click);
+            this.cmsStockIn.Name = "cmsStockIn";
+            this.cmsStockIn.Size = new System.Drawing.Size(152, 22);
+            this.cmsStockIn.Text = "StockIn";
+            this.cmsStockIn.Click += new System.EventHandler(this.cmsStockIn_Click);
+            // 
+            // cmsDetailStockIn
+            // 
+            this.cmsDetailStockIn.Name = "cmsDetailStockIn";
+            this.cmsDetailStockIn.Size = new System.Drawing.Size(152, 22);
+            this.cmsDetailStockIn.Text = "Detail StockIn";
+            this.cmsDetailStockIn.Click += new System.EventHandler(this.cmsDetailStockIn_Click);
+            // 
+            // gdvStaff
+            // 
+            this.gdvStaff.GridControl = this.gdcStaff;
+            this.gdvStaff.Name = "gdvStaff";
             // 
             // barManager1
             // 
@@ -95,8 +100,8 @@
             this.barManager1.DockControls.Add(this.barDockControlRight);
             this.barManager1.Form = this;
             this.barManager1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.btnReportStockOut,
-            this.btnRefresh});
+            this.btnAddStockIn,
+            this.btnDetailStockIn});
             this.barManager1.MaxItemId = 3;
             this.barManager1.StatusBar = this.bar3;
             // 
@@ -107,26 +112,25 @@
             this.bar1.DockRow = 0;
             this.bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnRefresh),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnReportStockOut)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnAddStockIn),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnDetailStockIn)});
             this.bar1.Text = "Tools";
             // 
-            // btnRefresh
+            // btnAddStockIn
             // 
-            this.btnRefresh.Caption = "Refresh";
-            this.btnRefresh.Id = 2;
-            this.btnRefresh.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.Image")));
-            this.btnRefresh.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefresh.ImageOptions.LargeImage")));
-            this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefresh_ItemClick);
+            this.btnAddStockIn.Caption = "StockIn";
+            this.btnAddStockIn.Id = 0;
+            this.btnAddStockIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnAddStockIn.ImageOptions.LargeImage")));
+            this.btnAddStockIn.Name = "btnAddStockIn";
+            this.btnAddStockIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddStockIn_ItemClick);
             // 
-            // btnReportStockOut
+            // btnDetailStockIn
             // 
-            this.btnReportStockOut.Caption = "Report";
-            this.btnReportStockOut.Id = 1;
-            this.btnReportStockOut.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportStockOut.ImageOptions.LargeImage")));
-            this.btnReportStockOut.Name = "btnReportStockOut";
-            this.btnReportStockOut.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportStockOut_ItemClick);
+            this.btnDetailStockIn.Caption = "Detail StockIn";
+            this.btnDetailStockIn.Id = 1;
+            this.btnDetailStockIn.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnDetailStockIn.ImageOptions.LargeImage")));
+            this.btnDetailStockIn.Name = "btnDetailStockIn";
+            this.btnDetailStockIn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDetailStockIn_ItemClick);
             // 
             // bar3
             // 
@@ -146,7 +150,7 @@
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManager1;
-            this.barDockControlTop.Size = new System.Drawing.Size(1337, 49);
+            this.barDockControlTop.Size = new System.Drawing.Size(1150, 49);
             // 
             // barDockControlBottom
             // 
@@ -154,7 +158,7 @@
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 491);
             this.barDockControlBottom.Manager = this.barManager1;
-            this.barDockControlBottom.Size = new System.Drawing.Size(1337, 23);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1150, 23);
             // 
             // barDockControlLeft
             // 
@@ -168,28 +172,27 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1337, 49);
+            this.barDockControlRight.Location = new System.Drawing.Point(1150, 49);
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 442);
             // 
-            // frmStockOut
+            // frmStaffStockIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1337, 514);
-            this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.gdcStockOut);
+            this.ClientSize = new System.Drawing.Size(1150, 514);
+            this.Controls.Add(this.gdcStaff);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
-            this.Name = "frmStockOut";
+            this.Name = "frmStaffStockIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "StockOut";
-            this.Load += new System.EventHandler(this.frmStockOut_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.gdcStockOut)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gdvStockOut)).EndInit();
+            this.Text = "StaffStockIn";
+            this.Load += new System.EventHandler(this.frmStaffStockIn_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gdcStaff)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gdvStaff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -198,18 +201,19 @@
 
         #endregion
 
-        private DevExpress.XtraGrid.GridControl gdcStockOut;
-        private DevExpress.XtraGrid.Views.Grid.GridView gdvStockOut;
+        private DevExpress.XtraGrid.GridControl gdcStaff;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem cmsReport;
+        private System.Windows.Forms.ToolStripMenuItem cmsStockIn;
+        private System.Windows.Forms.ToolStripMenuItem cmsDetailStockIn;
+        private DevExpress.XtraGrid.Views.Grid.GridView gdvStaff;
         private DevExpress.XtraBars.BarManager barManager1;
         private DevExpress.XtraBars.Bar bar1;
-        private DevExpress.XtraBars.BarLargeButtonItem btnReportStockOut;
+        private DevExpress.XtraBars.BarLargeButtonItem btnAddStockIn;
+        private DevExpress.XtraBars.BarLargeButtonItem btnDetailStockIn;
         private DevExpress.XtraBars.Bar bar3;
         private DevExpress.XtraBars.BarDockControl barDockControlTop;
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
-        private DevExpress.XtraBars.BarLargeButtonItem btnRefresh;
     }
 }

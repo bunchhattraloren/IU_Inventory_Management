@@ -19,10 +19,10 @@ namespace IU_Inventory_Management.Warehouse
         {
             InitializeComponent();
         }
-
+        public int _idStaff;
         private void frmStockIn_Load(object sender, EventArgs e)
         {
-            loadGrid();
+            loadGrid(_idStaff);
             gridButtonDelete();
             gridButtonEdit();
             for (int i = 0; i < gdvStockIn.Columns.Count - 2; i++)
@@ -36,14 +36,16 @@ namespace IU_Inventory_Management.Warehouse
             gdvStockIn.Columns["Image"].Visible = false;
             gdvStockIn.Columns["Description"].Visible = false;
             gdvStockIn.Columns["Problem Description"].Visible = false;
-            gdvStockIn.Columns["Problem"].Width = 25;
-            gdvStockIn.Columns["Quantity"].Width = 29;
-            gdvStockIn.Columns["Floor"].Width = 16;
-            gdvStockIn.Columns["Serial Number"].Width = 42;
-            gdvStockIn.Columns["Code"].Width = 42;
-            gdvStockIn.Columns["Brand"].Width = 42;
+            //gdvStockIn.Columns["Problem"].Width = 25;
+            //gdvStockIn.Columns["Quantity"].Width = 29;
+            //gdvStockIn.Columns["Floor"].Width = 16;
+            //gdvStockIn.Columns["Serial Number"].Width = 42;
+            //gdvStockIn.Columns["Code"].Width = 42;
+            //gdvStockIn.Columns["Brand"].Width = 42;
+            //gdvStockIn.Columns["Delete"].Width = 20;
+            gdvStockIn.BestFitColumns();
         }
-        public void loadGrid()
+        public void loadGrid(int idStaff)
         {
 
             gdcStockIn.DataSource = Database.getData(@"SELECT IVT_I.idItem AS Id,
@@ -74,7 +76,7 @@ namespace IU_Inventory_Management.Warehouse
 														LEFT JOIN tblInventoryFloor AS IVT_F ON IVT_F.idFloor=IVT_R.idFloor
                                                         LEFT JOIN tblInventoryProduct AS IVT_P ON IVT_P.idProduct=IVT_I.idProduct
                                                         LEFT JOIN tblInventoryGategory AS IVT_CG ON IVT_CG.idCategory=IVT_P.idCategory
-                                                        WHERE itemStatus=1 AND IVT_W.warehouseStockIn=1 ORDER BY IVT_I.itemNameEng");
+                                                        WHERE itemStatus=1 AND IVT_W.warehouseStockIn=1 AND IVT_I.itemStockOut=0 ORDER BY IVT_I.itemNameEng");
             gdvStockIn.Columns["Product"].Group();
             gdvStockIn.ExpandAllGroups();
 
@@ -142,7 +144,7 @@ namespace IU_Inventory_Management.Warehouse
 
                 if (_reload)
                 {
-                    loadGrid();
+                    loadGrid(_idStaff);
                 }
                 _reload = false;
             }
@@ -179,7 +181,7 @@ namespace IU_Inventory_Management.Warehouse
                     }
                     Database.executeSql("UPDATE tblInventoryItem SET itemStatus=0,itemDeactiveDate=GETDATE() WHERE idItem=" + _id + "");
                     Database.executeSql("UPDATE tblInventoryWarehouse SET warehouseStatus=0,warehouseDeactive=GETDATE() WHERE idItem=" + _id + "");
-                    loadGrid();
+                    loadGrid(_idStaff);
                 }
                 MsgBox._resultYes = false;
             }
@@ -222,7 +224,7 @@ namespace IU_Inventory_Management.Warehouse
         }
         private void btnAddStockIn_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            addStockIn();
+            
         }
         private void btnReportStockIn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -235,7 +237,7 @@ namespace IU_Inventory_Management.Warehouse
             frmProduct.ShowDialog();
             if (_reload)
             {
-                loadGrid();
+                loadGrid(_idStaff);
             }
         }
         public void reportStockIn()
@@ -250,6 +252,7 @@ namespace IU_Inventory_Management.Warehouse
                 dtTmp.Columns.Add("Product", typeof(string));
                 dtTmp.Columns.Add("Brand", typeof(string));
                 dtTmp.Columns.Add("Category", typeof(string));
+                dtTmp.Columns.Add("Room", typeof(string));
                 dtTmp.Columns.Add("Floor", typeof(string));
                 dtTmp.Columns.Add("Location", typeof(string));
                 dtTmp.Columns.Add("Description", typeof(string));
@@ -258,7 +261,7 @@ namespace IU_Inventory_Management.Warehouse
                 dtTmp.Columns.Add("Image", typeof(string));
                 dtTmp.Columns.Add("Date", typeof(string));
                 dtTmp.Columns.Add("Quantity", typeof(int));
-                string code, SerialNumber, ItemEn, ItemKh, Product, Brand, Category, Floor, Location, Description, ProblemDescription, Image, date;
+                string code, SerialNumber, ItemEn, ItemKh, Product, Brand, Category, Room, Floor, Location, Description, ProblemDescription, Image, date;
                 int Quantity;
                 bool Problem;
                 for (int i = 0; i < gdvStockIn.DataRowCount; i++)
@@ -270,6 +273,7 @@ namespace IU_Inventory_Management.Warehouse
                     Product = gdvStockIn.GetDataRow(i)["Product"].ToString();
                     Brand = gdvStockIn.GetDataRow(i)["Brand"].ToString();
                     Category = gdvStockIn.GetDataRow(i)["Category"].ToString();
+                    Room = gdvStockIn.GetDataRow(i)["Room"].ToString();
                     Floor = gdvStockIn.GetDataRow(i)["Floor"].ToString();
                     Location = gdvStockIn.GetDataRow(i)["Location"].ToString();
                     Category = gdvStockIn.GetDataRow(i)["Category"].ToString();
@@ -280,7 +284,7 @@ namespace IU_Inventory_Management.Warehouse
                     date = Convert.ToDateTime(gdvStockIn.GetDataRow(i)["Date"]).ToString("yyyy-MM-dd");
                     Quantity = Convert.ToInt16(gdvStockIn.GetDataRow(i)["Quantity"]);
                     string imagePath = Application.StartupPath + @"\Image\Product\" + Image;
-                    dtTmp.Rows.Add(code, SerialNumber, ItemEn, ItemKh, Product, Brand, Category, Floor, Location, Description, Problem, ProblemDescription, imagePath, date, Quantity);
+                    dtTmp.Rows.Add(code, SerialNumber, ItemEn, ItemKh, Product, Brand, Category, Room, Floor, Location, Description, Problem, ProblemDescription, imagePath, date, Quantity);
                 }
 
                 Utilities.xtraReportView("InventoryStockIn", dtTmp);
@@ -290,6 +294,11 @@ namespace IU_Inventory_Management.Warehouse
 
                 MsgBox.msgLoad("error", ex.Message);
             }
+        }
+
+        private void btnRefresh_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            loadGrid(_idStaff);
         }
     }
 }

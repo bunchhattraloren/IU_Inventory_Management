@@ -94,5 +94,21 @@ namespace IU_Inventory_Management.StockOut
             _frmStockOut._idStaff = Convert.ToInt16(gdvStaff.GetRowCellDisplayText(gdvStaff.GetSelectedRows()[0], gdvStaff.Columns[0]));
             _frmStockOut.ShowDialog();
         }
+
+        private void btnRefuse_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            detailRefuse();
+        }
+
+        private void cmsRefuse_Click(object sender, EventArgs e)
+        {
+            detailRefuse();
+        }
+        public void detailRefuse()
+        {
+            frmRefuse _frmRefuse = new frmRefuse();
+            _frmRefuse._idStaff = Convert.ToInt16(gdvStaff.GetRowCellDisplayText(gdvStaff.GetSelectedRows()[0], gdvStaff.Columns[0]));
+            _frmRefuse.ShowDialog();
+        }
     }
 }

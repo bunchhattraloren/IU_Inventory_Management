@@ -215,6 +215,7 @@
             // cbQuantityCustom
             // 
             this.cbQuantityCustom.AutoSize = true;
+            this.cbQuantityCustom.Enabled = false;
             this.cbQuantityCustom.Location = new System.Drawing.Point(549, 110);
             this.cbQuantityCustom.Name = "cbQuantityCustom";
             this.cbQuantityCustom.Size = new System.Drawing.Size(62, 17);
@@ -233,6 +234,7 @@
             // 
             // cboQuantity
             // 
+            this.cboQuantity.Enabled = false;
             this.cboQuantity.FormattingEnabled = true;
             this.cboQuantity.Items.AddRange(new object[] {
             "1",
@@ -398,6 +400,7 @@
             // 
             // txtCode
             // 
+            this.txtCode.Enabled = false;
             this.txtCode.Location = new System.Drawing.Point(156, 127);
             this.txtCode.Name = "txtCode";
             this.txtCode.Size = new System.Drawing.Size(185, 20);
@@ -405,11 +408,11 @@
             // 
             // labelControl11
             // 
-            this.labelControl11.Location = new System.Drawing.Point(118, 129);
+            this.labelControl11.Location = new System.Drawing.Point(102, 129);
             this.labelControl11.Name = "labelControl11";
-            this.labelControl11.Size = new System.Drawing.Size(32, 13);
+            this.labelControl11.Size = new System.Drawing.Size(48, 13);
             this.labelControl11.TabIndex = 17;
-            this.labelControl11.Text = "Code :";
+            this.labelControl11.Text = "BarCode :";
             // 
             // labelControl8
             // 
